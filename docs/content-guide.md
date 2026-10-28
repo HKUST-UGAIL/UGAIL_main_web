@@ -2,7 +2,7 @@
 
 The website reads JSON files under `content/`. Save a file and refresh the page in `npm run dev` to see the update; rebuild with `npm run build` before publishing static files. All examples below are illustrative; replace them with verified information before using them in production.
 
-The current `content/` files each include one user-requested example for Team, What We Do, Publications, and Updates. Edit these records directly or duplicate them to add more entries. Names, paper details, and `example.org` links are placeholders; replace them with real information. The example update also appears in the homepage sidebar.
+Team currently lists six user-provided names in order: Jiayu Liu, Zihui Wang, Hangan Zhou, Lingcheng Kong, Rui Wang, and Baichuan Li. Other profile fields await member information. What We Do, Publications, and Updates each contain one user-requested example. Edit these records directly or duplicate them to add more entries. Names, paper details, and `example.org` links are placeholders; replace them with real information. The example update also appears in the homepage sidebar.
 
 ## Site introduction
 
