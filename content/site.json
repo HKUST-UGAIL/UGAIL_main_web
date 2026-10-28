@@ -2,7 +2,7 @@
   "name": "UGAIL",
   "tagline": "Good questions. Shared discoveries.",
   "description": "Explore the people, projects, and ideas behind UGAIL.",
-  "about": "Welcome to UGAIL. This is where we share the projects we are working on, the activities we take part in, and the people behind them.\n\nExplore what we do, get to know our team, and follow our latest updates. You can find our publications and ways to connect through the links above.",
+  "about": "UGAI-Lab brings together Jiayu Liu, Zihui Wang, Hangan Zhou, Lingcheng Kong, Rui Wang and Baichuan Li. We are building a campus-focused AI research discovery and connection platform for HKUST that brings together papers, research directions, events and entry-level opportunities. The platform helps undergraduates explore AI research, publish Research Requests and connect with researchers who post Research Bounties through a privacy-aware, two-sided confirmation process, supported by profiles, workshops and seminars. Our goal is to make early participation in AI research more visible, understandable and approachable, while lowering the barrier for students to develop questions, discover meaningful opportunities and form academic connections through a secure and usable platform.",
   "githubUrl": "https://github.com/HKUST-UGAIL/UGAIL_main_web",
   "homeImage": {
     "src": "/images/campus.jpeg",

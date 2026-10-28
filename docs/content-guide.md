@@ -33,7 +33,7 @@ Add records to `content/people.json` in the desired display order. Roles appear 
   {
     "id": "example-person",
     "name": "Example Person",
-    "role": "Researcher",
+    "role": "team member",
     "interests": ["Verified research interest"],
     "bio": "A short, verified biography.",
     "image": "/images/people/example-person.jpg",
