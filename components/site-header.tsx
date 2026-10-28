@@ -8,7 +8,7 @@ import { BrandMark, Icon } from './icon';
 const navigation = [
   { href: '/', label: 'Home' },
   { href: '/team/', label: 'Team' },
-  { href: '/research/', label: 'Research' },
+  { href: '/what-we-do/', label: 'What We Do' },
   { href: '/publications/', label: 'Publications' },
   { href: '/updates/', label: 'Updates' },
 ];

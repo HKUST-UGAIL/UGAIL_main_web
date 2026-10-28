@@ -7,13 +7,13 @@ const url = z.url({ protocol: /^https?$/ });
 const image = z.string().regex(/^\/images\/(?:[\w-]+\/)*[\w.-]+$/, 'Images must be local paths under /images/');
 const links = z.array(z.strictObject({ label: text, url })).optional();
 const contentSchema = z.strictObject({
-  site: z.strictObject({ name: text, tagline: text, description: text, about: text, githubUrl: url, contactEmail: z.email().optional() }),
+  site: z.strictObject({ name: text, tagline: text, description: text, about: text, githubUrl: url, contactEmail: z.email().optional(), xHandle: z.string().regex(/^[A-Za-z0-9_]{1,15}$/, 'Use an X username without @').optional(), homeImage: z.strictObject({ src: image, alt: text, caption: text.optional() }).optional() }),
   people: z.array(z.strictObject({ id: slug, name: text, role: text, interests: z.array(text), bio: text.optional(), image: image.optional(), url: url.optional() })),
-  research: z.array(z.strictObject({ slug, title: text, summary: text, topics: z.array(text), body: z.array(text), image: image.optional(), featured: z.boolean().optional(), links })),
+  initiatives: z.array(z.strictObject({ slug, title: text, summary: text, category: z.enum(['Project', 'Activity']), topics: z.array(text), body: z.array(text), image: image.optional(), links })),
   publications: z.array(z.strictObject({ id: slug, title: text, authors: z.array(text).min(1), year: z.number().int().min(1900).max(9999), venue: text, paperUrl: url, codeUrl: url.optional(), bibtex: text.optional() })),
   updates: z.array(z.strictObject({ slug, title: text, date: z.iso.date(), category: z.enum(['News', 'Event', 'Article']), summary: text, body: z.array(text), links })),
 }).superRefine((content, context) => {
-  for (const collection of ['people', 'research', 'publications', 'updates'] as const) {
+  for (const collection of ['people', 'initiatives', 'publications', 'updates'] as const) {
     const seen = new Set<string>();
     for (const [index, item] of content[collection].entries()) {
       const id = 'slug' in item ? item.slug : item.id;

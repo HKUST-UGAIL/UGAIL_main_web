@@ -10,7 +10,7 @@ export function SectionHeading({ label, title, href, linkLabel }: { label: strin
   return <div className="section-heading"><div><p className="eyebrow">{label}</p><h2>{title}</h2></div>{href && <Link className="text-link" href={href}>{linkLabel} <Icon name="arrow" size={17} /></Link>}</div>;
 }
 
-export function EmptyState({ icon = 'research', title, description, compact = false }: { icon?: IconName; title: string; description: string; compact?: boolean }) {
+export function EmptyState({ icon = 'work', title, description, compact = false }: { icon?: IconName; title: string; description: string; compact?: boolean }) {
   return <div className={`empty-state${compact ? ' empty-compact' : ''}`}><div className="empty-symbol"><Icon name={icon} size={27} /></div><div><h3>{title}</h3><p>{description}</p></div><span className="empty-decoration" aria-hidden="true">↗</span></div>;
 }
 

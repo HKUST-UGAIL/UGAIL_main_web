@@ -4,7 +4,23 @@ The website reads JSON files under `content/`. Save a file and refresh the page 
 
 ## Site introduction
 
-`content/site.json` contains `name`, `tagline`, `description`, `about`, and `githubUrl`. These are required nonempty strings; `githubUrl` must be an HTTP(S) URL. The homepage headline uses the tagline, splitting sentences onto separate lines. The optional `contactEmail` enables the email contact card on Join us. Leave that property absent until a public contact address is confirmed.
+`content/site.json` contains `name`, `tagline`, `description`, `about`, and `githubUrl`. These are required nonempty strings; `githubUrl` must be an HTTP(S) URL. The homepage headline welcomes visitors using `name`; the footer shows `tagline` beneath the brand. The optional `contactEmail` enables the email contact card on Join us. Leave that property absent until a public contact address is confirmed.
+
+## Homepage layout, image and X account
+
+The homepage uses a wide left column and a compact right sidebar on desktop. The left column displays the image followed by the introduction; the sidebar displays the X account card and up to six updates in descending date order. Mobile displays the main column first, followed by the sidebar.
+
+Edit `site.about` for the introduction. Separate paragraphs with `\n\n` inside the JSON string. The optional `homeImage` object controls the homepage photograph:
+
+```json
+"homeImage": {
+  "src": "/images/campus.jpeg",
+  "alt": "An accurate description of the image",
+  "caption": "An optional caption."
+}
+```
+
+For the X card, add `"xHandle": "your_username"` to `content/site.json` when the account is confirmed (without `@` or a URL). Until then, leave the field absent: the card displays `@your_handle` as a placeholder and does not link to an unconfirmed account. New updates in `content/updates.json` automatically appear below this card; these are maintained website updates, not an embedded live X feed.
 
 ## Team
 
@@ -26,9 +42,9 @@ Add records to `content/people.json` in the desired display order. Roles appear 
 
 Required: `id`, `name`, `role`, `interests`. Optional: `bio`, `image`, `url`. The `interests` array can be empty.
 
-## Research
+## What We Do: projects and activities
 
-Add records to `content/research.json`. A record automatically creates `/research/<slug>/` at build time. Topic buttons are derived from all projects. Set `featured` to `true` to show a project on the homepage (up to three, in file order).
+Add records to `content/initiatives.json`. A record automatically creates `/what-we-do/<slug>/` at build time. Set `category` to `Project` or `Activity`; the page offers separate filters for each. Use projects for things you build or develop, and activities for workshops, reading groups, meetups, and other shared experiences.
 
 ```json
 [
@@ -36,16 +52,16 @@ Add records to `content/research.json`. A record automatically creates `/researc
     "slug": "example-project",
     "title": "Example project",
     "summary": "A concise, verified project introduction.",
-    "topics": ["Research direction"],
+    "category": "Project",
+    "topics": ["Topic or theme"],
     "body": ["First paragraph.", "Second paragraph."],
-    "featured": true,
     "image": "/images/projects/example-project.jpg",
     "links": [{ "label": "Project code", "url": "https://example.org/code" }]
   }
 ]
 ```
 
-Required: `slug`, `title`, `summary`, `topics`, `body`. Optional: `featured`, `image`, `links`. Paragraphs are plain text, not Markdown or HTML. Missing project images receive a simple graphic, not a generated research figure.
+Required: `slug`, `title`, `summary`, `category`, `topics`, `body`. Optional: `image`, `links`. Paragraphs are plain text, not Markdown or HTML. Missing project images receive a simple graphic, not a photograph of an actual project.
 
 ## Publications
 
@@ -70,7 +86,7 @@ Required: `id`, `title`, `authors` (at least one), `year` (integer), `venue`, `p
 
 ## Updates, events and articles
 
-Add records to `content/updates.json`. A record automatically creates `/updates/<slug>/`. Records sort by date descending. The homepage shows the latest three.
+Add records to `content/updates.json`. A record automatically creates `/updates/<slug>/`. Records sort by date descending. The homepage sidebar shows the latest six.
 
 ```json
 [

@@ -1,9 +1,34 @@
 import { test, expect } from '@playwright/test';
 
+test('homepage places the photo and introduction beside a narrow updates sidebar', async ({ page, isMobile }) => {
+  await page.goto('/');
+  const primary = page.locator('.home-main');
+  const sidebar = page.getByRole('complementary', { name: 'Latest from UGAIL' });
+  await expect(primary).toBeVisible();
+  await expect(sidebar).toBeVisible();
+  const photo = await primary.locator('figure').boundingBox();
+  const introduction = await primary.locator('.home-introduction').boundingBox();
+  const left = await primary.boundingBox();
+  const right = await sidebar.boundingBox();
+  expect(photo!.y + photo!.height).toBeLessThanOrEqual(introduction!.y);
+  if (isMobile) {
+    expect(right!.y).toBeGreaterThanOrEqual(left!.y + left!.height - 1);
+  } else {
+    expect(right!.x).toBeGreaterThanOrEqual(left!.x + left!.width);
+    expect(left!.width).toBeGreaterThan(right!.width * 2);
+  }
+  await expect(sidebar.locator('.x-account-card')).toBeVisible();
+  await expect(sidebar.getByRole('link', { name: 'Follow UGAIL on X' })).toHaveAttribute('href', 'https://x.com/ugail_example');
+  await expect(sidebar.getByRole('heading', { name: 'Latest updates' })).toBeVisible();
+  await expect(sidebar.locator('article h3 a').first()).toHaveText('Research notes');
+  await sidebar.getByRole('link', { name: 'Research notes', exact: true }).click();
+  await expect(page).toHaveURL(/\/updates\/test-research-notes\//);
+});
+
 test('all public pages render without horizontal overflow or browser errors', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
-  for (const path of ['/', '/team/', '/research/', '/publications/', '/updates/', '/join/']) {
+  for (const path of ['/', '/team/', '/what-we-do/', '/publications/', '/updates/', '/join/']) {
     await page.goto(path);
     await expect(page.locator('main h1')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -30,13 +55,16 @@ test('publication search, year intersection, empty results and BibTeX work', asy
   await expect(page.locator('pre')).toHaveCount(0);
 });
 
-test('research filters preserve detail navigation', async ({ page }) => {
-  await page.goto('/research/');
-  await page.getByRole('button', { name: 'Robotics', exact: true }).click();
+test('projects and activities filter independently and preserve detail navigation', async ({ page }) => {
+  await page.goto('/what-we-do/');
+  await page.getByRole('button', { name: 'Activities', exact: true }).click();
   await expect(page.getByRole('article')).toHaveCount(1);
-  await page.getByRole('link', { name: 'Learning agents', exact: true }).click();
-  await expect(page).toHaveURL(/\/research\/learning-agents\//);
-  await expect(page.getByText('This test detail is not published as real research.')).toBeVisible();
+  await page.getByRole('link', { name: 'Reading together', exact: true }).click();
+  await expect(page).toHaveURL(/\/what-we-do\/reading-together\//);
+  await expect(page.getByText('A test activity detail page.')).toBeVisible();
+  await page.getByRole('link', { name: 'All projects & activities', exact: true }).click();
+  await page.getByRole('button', { name: 'Projects', exact: true }).click();
+  await expect(page.getByRole('article')).toHaveCount(2);
 });
 
 test('updates filter by category and open a readable detail page', async ({ page }) => {

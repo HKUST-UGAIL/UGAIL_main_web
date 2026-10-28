@@ -14,7 +14,7 @@ try {
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    for (const route of ['/', '/team/', '/research/', '/publications/', '/updates/', '/join/']) {
+    for (const route of ['/', '/team/', '/what-we-do/', '/publications/', '/updates/', '/join/']) {
       const response = await page.goto(`${origin}${prefix}${route}`, { waitUntil: 'networkidle' });
       assert.equal(response.status(), 200, `${name}: ${route} should exist`);
       assert.equal(await page.locator('main h1').count(), 1, `${name}: ${route} needs one heading`);
@@ -22,13 +22,13 @@ try {
       assert(await page.evaluate(() => [...document.images].every(image => image.complete && image.naturalWidth > 0)), `${name}: ${route} has a broken image`);
       if (!fixtures) {
         assert(!/Alex Rivera|Sam Chen|test@example.org|fictional test/i.test(await page.locator('body').innerText()), 'Fixture data leaked into production');
-        if (['/team/', '/research/', '/publications/', '/updates/'].includes(route)) assert.equal(await page.locator('.empty-state').count(), 1);
+        if (['/team/', '/what-we-do/', '/publications/', '/updates/'].includes(route)) assert.equal(await page.locator('.empty-state').count(), 1);
       }
       if (name === 'desktop' && route !== '/join/') assert.equal(await page.locator('.desktop-nav a[aria-current="page"]').count(), 1, `Active navigation missing on ${route}`);
       await page.screenshot({ path: `${output}/${route === '/' ? 'home' : route.split('/')[1]}-${name}.png`, fullPage: true });
     }
     if (fixtures) {
-      for (const route of ['/research/learning-agents/', '/updates/test-reading-session/']) {
+      for (const route of ['/what-we-do/learning-agents/', '/updates/test-reading-session/']) {
         const response = await page.goto(`${origin}${prefix}${route}`);
         assert.equal(response.status(), 200, `Direct detail request failed: ${route}`);
         assert.equal(await page.locator('main article .prose').count(), 1);

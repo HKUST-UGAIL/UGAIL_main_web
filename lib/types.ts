@@ -6,6 +6,8 @@ export type Site = {
   about: string;
   githubUrl: string;
   contactEmail?: string;
+  xHandle?: string;
+  homeImage?: { src: string; alt: string; caption?: string };
 };
 export type Person = {
   id: string;
@@ -16,14 +18,14 @@ export type Person = {
   image?: string;
   url?: string;
 };
-export type Research = {
+export type Initiative = {
   slug: string;
   title: string;
   summary: string;
+  category: 'Project' | 'Activity';
   topics: string[];
   body: string[];
   image?: string;
-  featured?: boolean;
   links?: LinkItem[];
 };
 export type Publication = {
@@ -48,7 +50,7 @@ export type Update = {
 export type Content = {
   site: Site;
   people: Person[];
-  research: Research[];
+  initiatives: Initiative[];
   publications: Publication[];
   updates: Update[];
 };

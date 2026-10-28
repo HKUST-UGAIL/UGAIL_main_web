@@ -4,12 +4,12 @@ import { readFileSync } from 'node:fs';
 import { validateContent } from '../../lib/schema.ts';
 
 function fixture() {
-  return Object.fromEntries(['site', 'people', 'research', 'publications', 'updates'].map(name => [name, JSON.parse(readFileSync(new URL(`../fixtures/content/${name}.json`, import.meta.url), 'utf8'))]));
+  return Object.fromEntries(['site', 'people', 'initiatives', 'publications', 'updates'].map(name => [name, JSON.parse(readFileSync(new URL(`../fixtures/content/${name}.json`, import.meta.url), 'utf8'))]));
 }
 
 test('content validation rejects duplicate project slugs before static routing', () => {
   const content = fixture();
-  content.research.push(content.research[0]);
+  content.initiatives.push(content.initiatives[0]);
   assert.throws(() => validateContent(content));
 });
 test('content validation rejects executable links and malformed calendar dates', () => {
@@ -24,6 +24,6 @@ test('valid content preserves paragraphs, optional links, and a missing contact 
   const content = fixture();
   delete content.site.contactEmail;
   const result = validateContent(content);
-  assert.deepEqual(result.research[0].body, ['This is isolated test content for a project detail page.']);
+  assert.deepEqual(result.initiatives[0].body, ['This is isolated test content for a project detail page.']);
   assert.equal(result.site.contactEmail, undefined);
 });

@@ -1,0 +1,45 @@
+[
+  {
+    "slug": "evaluating-dialogue",
+    "title": "Evaluating dialogue",
+    "summary": "A fictional project used to verify research filters.",
+    "topics": [
+      "Language",
+      "Evaluation"
+    ],
+    "body": [
+      "This is isolated test content for a project detail page."
+    ],
+    "links": [
+      {
+        "label": "Project code",
+        "url": "https://example.org/code"
+      }
+    ],
+    "category": "Project"
+  },
+  {
+    "slug": "learning-agents",
+    "title": "Learning agents",
+    "summary": "A fictional robotics project used in browser tests.",
+    "topics": [
+      "Robotics"
+    ],
+    "body": [
+      "This test detail is not published as real research."
+    ],
+    "category": "Project"
+  },
+  {
+    "slug": "reading-together",
+    "title": "Reading together",
+    "summary": "A fictional activity used to verify project and activity categories.",
+    "category": "Activity",
+    "topics": [
+      "Reading group"
+    ],
+    "body": [
+      "A test activity detail page."
+    ]
+  }
+]

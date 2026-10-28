@@ -1,4 +1,0 @@
-[
-  { "slug": "evaluating-dialogue", "title": "Evaluating dialogue", "summary": "A fictional project used to verify research filters.", "topics": ["Language", "Evaluation"], "featured": true, "body": ["This is isolated test content for a project detail page."], "links": [{ "label": "Project code", "url": "https://example.org/code" }] },
-  { "slug": "learning-agents", "title": "Learning agents", "summary": "A fictional robotics project used in browser tests.", "topics": ["Robotics"], "body": ["This test detail is not published as real research."] }
-]

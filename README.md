@@ -1,6 +1,6 @@
 # UGAIL
 
-An English public website introducing UGAIL, with team profiles, research projects, publications, news, events, and participation information.
+An English public website introducing UGAIL, with team profiles, projects, activities, publications, news, events, and participation information.
 
 Built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4. Pages export to static HTML and can be hosted on GitHub Pages. The visual language follows the local USTLabSpace reference; the information architecture follows the [UIUC Conversational AI Lab](https://uiuc-conversational-ai-lab.github.io/).
 
@@ -28,16 +28,16 @@ npm run preview
 
 | Page | URL | Content |
 | --- | --- | --- |
-| Home | `/` | Site introduction, featured research, latest updates |
+| Home | `/` | Large image and introduction on the left; X account and latest updates on the right |
 | Team | `/team/` | People grouped by role |
-| Research | `/research/` | Topic filters and project detail pages |
+| What We Do | `/what-we-do/` | Project/activity filters and detail pages |
 | Publications | `/publications/` | Search, year filter, paper/code links, BibTeX |
 | Updates | `/updates/` | News, events, articles, and detail pages |
 | Join us | `/join/` | Participation information and optional contact email |
 
-Edit `content/site.json`, `people.json`, `research.json`, `publications.json`, and `updates.json`. Add images under `public/images/`. See the [content guide](docs/content-guide.md) for complete examples and field definitions.
+Edit `content/site.json`, `people.json`, `initiatives.json`, `publications.json`, and `updates.json`. Add images under `public/images/`. See the [content guide](docs/content-guide.md) for complete examples and field definitions.
 
-Production collections intentionally start empty: the source repository contained no verified member, project, or publication records. The website renders designed empty states. Fictional browser-test records are isolated in `tests/fixtures/content/` and are never loaded by default. The UGAIL acronym, institutional affiliation, contact email, and statistics are not invented.
+Production collections intentionally start empty: the source repository contained no verified member, project, activity, or publication records. The website renders designed empty states. Fictional browser-test records are isolated in `tests/fixtures/content/` and are never loaded by default. The UGAIL acronym, institutional affiliation, contact email, and statistics are not invented.
 
 ## Verify
 
