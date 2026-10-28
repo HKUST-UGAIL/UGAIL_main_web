@@ -1,6 +1,6 @@
 # Editing UGAIL content
 
-The website reads JSON files under `content/`. Save a file to see the update in `npm run dev`; rebuild with `npm run build` before publishing static files. All examples below are illustrative; replace them with verified information before using them in production.
+The website reads JSON files under `content/`. Save a file and refresh the page in `npm run dev` to see the update; rebuild with `npm run build` before publishing static files. All examples below are illustrative; replace them with verified information before using them in production.
 
 ## Site introduction
 

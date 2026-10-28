@@ -36,10 +36,10 @@
 
 **Interfaces:** `withBasePath(path: string): string`; `filterPublications(items, query, year)`; `filterResearch(items, topic)`; `filterUpdates(items, category)`; `getContent()` returns typed site, people, research, publications, updates.
 
-- [ ] Install exact stable dependencies; configure static export and lint/typecheck/test scripts.
-- [ ] Write tests for search across title/author/venue, combined year filtering, category/topic filtering, preserved external links, and root/subpath URL behavior.
-- [ ] Run tests to observe missing behavior; implement filters and URL handling, then rerun.
-- [ ] Add typed editable JSON collections with empty production records and isolated realistic test fixtures.
+- [x] Install exact stable dependencies; configure static export and lint/typecheck/test scripts.
+- [x] Write tests for search across title/author/venue, combined year filtering, category/topic filtering, preserved external links, and root/subpath URL behavior.
+- [x] Run tests to observe missing behavior; implement filters and URL handling, then rerun.
+- [x] Add typed editable JSON collections with empty production records and isolated realistic test fixtures.
 
 Test example:
 
@@ -54,12 +54,12 @@ assert.equal(withBasePath('/team/'), '/UGAIL_main_web/team/');
 
 **Interfaces:** Page components consume `getContent()` server-side; client explorers receive serializable typed collections. Index/detail routes enumerate `{slug: []}` plus each content slug. Internal links use Next Link; ordinary asset URLs use `withBasePath()`.
 
-- [ ] Add browser tests for usable navigation, mobile Escape behavior, fixture search/filtering, detail links, and BibTeX.
-- [ ] Observe expected missing-page failures before building the UI.
-- [ ] Implement shared accessible navigation/footer, deep blue campus hero, homepage sections and all six pages.
-- [ ] Add research/update detail rendering, real empty states, optional contact links and 404.
-- [ ] Add responsive design, focus states, reduced-motion support, local campus image and page metadata.
-- [ ] Run browser tests against fixture content, inspect desktop/mobile screenshots, and correct any visual defects.
+- [x] Add browser tests for usable navigation, mobile Escape behavior, fixture search/filtering, detail links, and BibTeX.
+- [x] Observe expected missing-page failures before building the UI.
+- [x] Implement shared accessible navigation/footer, deep blue campus hero, homepage sections and all six pages.
+- [x] Add research/update detail rendering, real empty states, optional contact links and 404.
+- [x] Add responsive design, focus states, reduced-motion support, local campus image and page metadata.
+- [x] Run browser tests against fixture content, inspect desktop/mobile screenshots, and correct any visual defects.
 
 Browser behavior example:
 
@@ -76,14 +76,16 @@ await expect(page.getByText('@article{dialogue2025', { exact: false })).toBeVisi
 
 **Interfaces:** `NEXT_PUBLIC_BASE_PATH` controls the deployment prefix; optional `NEXT_PUBLIC_SITE_URL` controls canonical/social/sitemap origin; `UGAIL_CONTENT_DIR` is an isolated test-only input directory.
 
-- [ ] Add safe static preview server with correct MIME types, index routing and 404 status.
-- [ ] Add export checker for all local href/src references, including subpath handling.
-- [ ] Add manual-only Pages workflow using the repository name as prefix; document root/custom-domain configuration.
-- [ ] Run unit tests, ESLint, typecheck and root production build.
-- [ ] Inspect production pages and empty states; build and verify the repository subpath; test direct detail-page requests with fixtures.
-- [ ] Restore a production-content root build, write verification evidence, and leave a usable local preview.
+- [x] Add safe static preview server with correct MIME types, index routing and 404 status.
+- [x] Add export checker for all local href/src references, including subpath handling.
+- [x] Add manual-only Pages workflow using the repository name as prefix; document root/custom-domain configuration.
+- [x] Run unit tests, ESLint, typecheck and root production build.
+- [x] Inspect production pages and empty states; build and verify the repository subpath; test direct detail-page requests with fixtures.
+- [x] Restore a production-content root build, write verification evidence, and leave a usable local preview.
 
 ## Progress
 
 - Plan and spec reviewed together: all requested pages, interactions, content boundaries, accessibility and static deployment checks are mapped above.
 - Execution is inline because route construction, content validation, and page rendering share tightly coupled interfaces in a new repository.
+
+- Completed: all three integrated tasks; verification evidence is recorded in `docs/superpowers/verification/2026-10-28-ugail-website.md`.
