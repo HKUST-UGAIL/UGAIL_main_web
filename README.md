@@ -37,7 +37,7 @@ npm run preview
 
 Edit `content/site.json`, `people.json`, `initiatives.json`, `publications.json`, and `updates.json`. Add images under `public/images/`. See the [content guide](docs/content-guide.md) for complete examples and field definitions.
 
-Production collections intentionally start empty: the source repository contained no verified member, project, activity, or publication records. The website renders designed empty states. Fictional browser-test records are isolated in `tests/fixtures/content/` and are never loaded by default. The UGAIL acronym, institutional affiliation, contact email, and statistics are not invented.
+At the user’s request, each collection in `content/` currently contains one clearly labeled example: a member, project, publication, and update. Replace these examples with verified information before publishing; `example.org` links are placeholders. Removing the entries (using `[]`) restores the empty states. Automated browser-test fixtures remain isolated in `tests/fixtures/content/` and are never loaded by default.
 
 ## Verify
 

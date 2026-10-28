@@ -6,11 +6,11 @@ Date: 2026-10-28 (Asia/Hong_Kong)
 
 English static website with Home, Team, What We Do, Publications, Updates, and Join us. The homepage follows the user's correction: a wide left column with the photo above the introduction, and a narrow right sidebar with the X account card above recent updates. At mobile widths, the main column precedes the sidebar. The X card uses `@your_handle` as requested and does not link to an unconfirmed account.
 
-What We Do replaces Research and offers Projects / Activities filters with independent detail pages. Site content is maintained through validated JSON files. Production collections remain empty until verified content is provided; fictional examples remain isolated in `tests/fixtures/content/`.
+What We Do replaces Research and offers Projects / Activities filters with independent detail pages. Site content is maintained through validated JSON files. After the user requested examples, each collection in `content/` now contains one clearly labeled demonstration record. Automated test fixtures remain isolated in `tests/fixtures/content/`.
 
 The visual design uses deep blue, soft green accents, light surfaces, rounded cards, and local Geist typography from the USTLabSpace reference. Root-path desktop/mobile home screenshots, plus the populated fixture homepage and What We Do desktop screenshots, were visually inspected. Screenshots for all six pages are retained locally under `artifacts/screenshots/` and ignored by Git.
 
-## Evidence for the corrected website
+## Evidence for the corrected website (before sample content)
 
 | Check | Result |
 | --- | --- |
@@ -43,8 +43,22 @@ The final output is restored to a root-path build using production content. The 
 
 ## Content and deployment state
 
-- Member profiles, projects, activities, papers, updates, and contact email await verified source material. None were fabricated.
+- Real member profiles, projects, activities, papers, updates, and contact email await verified source material. User-requested demonstration records are explicitly labeled Example.
 - Add `site.xHandle` later to enable the real X account link; edit `site.homeImage` and `site.about` for the homepage.
 - Edit `content/initiatives.json` for Projects / Activities and `content/updates.json` for sidebar updates.
 - GitHub Pages workflow has a manual trigger. No remote publishing was performed.
 - Local work remains on `feat/ugail-website`.
+
+## User-requested sample content
+
+Team, What We Do, Publications, and Updates each contain one English example. The project and update have exported detail pages, the publication includes a sample BibTeX citation, and the example update appears in the homepage sidebar. External example links use `example.org`.
+
+Verification after this change:
+
+- `npm run build`: passed, including both example detail routes.
+- `npm run lint`: passed.
+- `npm run verify:export`: 11 HTML pages and 378 local asset/link references passed at root.
+- `PREVIEW_URL=http://127.0.0.1:3001 npm run verify:browser`: desktop and mobile passed, including collection counts, detail requests, images, overflow, navigation, runtime errors, and 404.
+- Visually inspected Team and What We Do desktop screenshots, plus Publications and Updates mobile screenshots.
+
+The preview verifier now checks visible collection counts against the current content instead of assuming empty collections, so it also supports replacing the examples with real records.

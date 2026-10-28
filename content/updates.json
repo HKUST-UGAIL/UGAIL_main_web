@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "slug": "example-project-update",
+    "title": "Example Update: A New Project Begins",
+    "date": "2026-10-28",
+    "category": "News",
+    "summary": "An example announcement showing how a new project, team milestone, or community update will appear on the website.",
+    "body": [
+      "This is an example update for previewing the news layout. It does not describe an actual UGAIL announcement.",
+      "A real update could introduce a new project, welcome a member, or share a recent activity. Start with what happened, why it matters, and who was involved.",
+      "Replace this text with your announcement. It will appear in Updates and automatically in the homepage’s Latest updates sidebar."
+    ]
+  }
+]

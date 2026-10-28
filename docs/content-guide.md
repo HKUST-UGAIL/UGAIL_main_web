@@ -2,6 +2,8 @@
 
 The website reads JSON files under `content/`. Save a file and refresh the page in `npm run dev` to see the update; rebuild with `npm run build` before publishing static files. All examples below are illustrative; replace them with verified information before using them in production.
 
+The current `content/` files each include one user-requested example for Team, What We Do, Publications, and Updates. Edit these records directly or duplicate them to add more entries. Names, paper details, and `example.org` links are placeholders; replace them with real information. The example update also appears in the homepage sidebar.
+
 ## Site introduction
 
 `content/site.json` contains `name`, `tagline`, `description`, `about`, and `githubUrl`. These are required nonempty strings; `githubUrl` must be an HTTP(S) URL. The homepage headline welcomes visitors using `name`; the footer shows `tagline` beneath the brand. The optional `contactEmail` enables the email contact card on Join us. Leave that property absent until a public contact address is confirmed.
@@ -112,7 +114,7 @@ Required: `slug`, `title`, `date`, `category`, `summary`, `body`. Optional: `lin
 - Detail-page slugs are one path segment. If a slug changes, the old URL will return 404 unless a separate hosting redirect is configured.
 - Every resource URL must use `http://` or `https://`. Executable or malformed links are rejected.
 - The build validates every content record. Duplicate identifiers, invalid dates, missing required fields, and misspelled fields cause an explicit build error.
-- Use `[]` for an empty collection. Do not add fictional records to fill the layout.
+- Use `[]` for an empty collection. Keep demonstration content clearly labeled as an example and replace it before publishing.
 
 For a local test of the filled layout, use the isolated fixture directory:
 

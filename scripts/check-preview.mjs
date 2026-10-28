@@ -1,10 +1,16 @@
 import assert from 'node:assert/strict';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readFile } from 'node:fs/promises';
+import path from 'node:path';
 import { chromium } from '@playwright/test';
 
 const origin = process.env.PREVIEW_URL || 'http://127.0.0.1:3000';
 const prefix = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\/$/, '');
 const fixtures = process.env.VERIFY_FIXTURES === '1';
+const collections = fixtures ? {} : Object.fromEntries(await Promise.all(
+  [['team', 'people'], ['what-we-do', 'initiatives'], ['publications', 'publications'], ['updates', 'updates']].map(async ([route, name]) =>
+    [`/${route}/`, JSON.parse(await readFile(path.resolve(process.env.UGAIL_CONTENT_DIR || 'content', `${name}.json`), 'utf8'))],
+  ),
+));
 const output = `artifacts/screenshots/${prefix ? 'project-path' : 'root'}${fixtures ? '-fixtures' : ''}`;
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch();
@@ -22,10 +28,22 @@ try {
       assert(await page.evaluate(() => [...document.images].every(image => image.complete && image.naturalWidth > 0)), `${name}: ${route} has a broken image`);
       if (!fixtures) {
         assert(!/Alex Rivera|Sam Chen|test@example.org|fictional test/i.test(await page.locator('body').innerText()), 'Fixture data leaked into production');
-        if (['/team/', '/what-we-do/', '/publications/', '/updates/'].includes(route)) assert.equal(await page.locator('.empty-state').count(), 1);
+        if (collections[route]) {
+          assert.equal(await page.getByRole('article').count(), collections[route].length, `${name}: ${route} content count`);
+          assert.equal(await page.locator('.empty-state').count(), collections[route].length ? 0 : 1);
+        }
       }
       if (name === 'desktop' && route !== '/join/') assert.equal(await page.locator('.desktop-nav a[aria-current="page"]').count(), 1, `Active navigation missing on ${route}`);
       await page.screenshot({ path: `${output}/${route === '/' ? 'home' : route.split('/')[1]}-${name}.png`, fullPage: true });
+    }
+    if (!fixtures) {
+      for (const route of ['/what-we-do/', '/updates/']) {
+        for (const item of collections[route]) {
+          const response = await page.goto(`${origin}${prefix}${route}${item.slug}/`);
+          assert.equal(response.status(), 200, `Direct detail request failed: ${route}${item.slug}/`);
+          assert.equal(await page.locator('main article .prose').count(), 1);
+        }
+      }
     }
     if (fixtures) {
       for (const route of ['/what-we-do/learning-agents/', '/updates/test-reading-session/']) {
@@ -48,7 +66,7 @@ try {
     assert.equal(missing.status(), 404);
     assert.equal(await page.getByRole('link', { name: 'Back to home' }).count(), 1);
     assert.deepEqual(errors, [], 'Browser runtime errors');
-    console.log(`${name}: six pages, images, overflow, navigation, ${fixtures ? 'fixture details, ' : 'production empty states, '}and 404 verified.`);
+    console.log(`${name}: six pages, images, overflow, navigation, ${fixtures ? 'fixture details, ' : 'content counts and details, '}and 404 verified.`);
     await context.close();
   }
   console.log(`Screenshots: ${output}`);

@@ -130,3 +130,7 @@
 - 按 UIUC 参考布局改为宽主栏加窄侧栏，图片与文字上下排列。
 - Research 更名为 What We Do，以 Projects 和 Activities 展现团队正在做的事情。
 - 用户确认 X 账号先用占位符。后续只需编辑 `content/site.json`，不必修改组件。
+
+## 10. 示例内容修订
+
+按用户后续要求，Team、What We Do、Publications、Updates 各加入一条英文示例，存放在 `content/` 中并明确标为 Example。示例动态同步出现在首页侧栏；示例项目提供详情页，示例论文提供 BibTeX。用户可直接替换对应 JSON 记录。示例不代表真实团队成员、项目成果或已发表论文。
