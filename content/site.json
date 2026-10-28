@@ -1,0 +1,12 @@
+{
+  "name": "UGAIL",
+  "tagline": "Good questions. Shared discoveries.",
+  "description": "Explore the people, projects, and ideas behind UGAIL.",
+  "about": "Welcome to UGAIL. This is where we share the projects we are working on, the activities we take part in, and the people behind them.\n\nExplore what we do, get to know our team, and follow our latest updates. You can find our publications and ways to connect through the links above.",
+  "githubUrl": "https://github.com/HKUST-UGAIL/UGAIL_main_web",
+  "homeImage": {
+    "src": "/images/campus.jpeg",
+    "alt": "HKUST campus and its red sundial sculpture",
+    "caption": "A view of the HKUST campus."
+  }
+}

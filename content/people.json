@@ -1,0 +1,13 @@
+[
+  {
+    "id": "example-member",
+    "name": "Example Member",
+    "role": "Student Researcher",
+    "interests": [
+      "Conversational AI",
+      "Human–AI Interaction"
+    ],
+    "bio": "Example profile: a student exploring how conversational systems can support everyday learning. Replace this entry with a real member’s name, role, and biography.",
+    "url": "https://example.org/"
+  }
+]

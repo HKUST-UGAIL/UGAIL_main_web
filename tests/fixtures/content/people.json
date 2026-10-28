@@ -1,0 +1,4 @@
+[
+  { "id": "alex", "name": "Alex Rivera", "role": "Researcher", "interests": ["Dialogue", "Evaluation"], "bio": "Fictional test profile.", "url": "https://example.org/alex" },
+  { "id": "sam", "name": "Sam Chen", "role": "Student", "interests": ["Robotics"] }
+]

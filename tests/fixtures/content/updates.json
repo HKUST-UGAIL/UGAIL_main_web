@@ -1,0 +1,4 @@
+[
+  { "slug": "test-reading-session", "title": "A reading session", "date": "2026-09-02", "category": "Event", "summary": "A fictional event for the browser test suite.", "body": ["A test event detail page."] },
+  { "slug": "test-research-notes", "title": "Research notes", "date": "2026-10-01", "category": "Article", "summary": "A fictional article for the browser test suite.", "body": ["A test article detail page."] }
+]

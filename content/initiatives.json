@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "example-conversational-assistant",
+    "title": "Example Project: Conversational Assistant",
+    "summary": "A sample project exploring an AI assistant that helps people ask questions, find information, and learn through conversation.",
+    "category": "Project",
+    "topics": [
+      "Conversational AI",
+      "Prototyping"
+    ],
+    "body": [
+      "This is an example project for previewing the website, rather than a report of work completed by UGAIL.",
+      "The sample concept is a conversational assistant for everyday learning. A project description could explain its motivation, who it serves, and how the system works.",
+      "Use this space to describe your approach, progress, and next steps. Replace this example with a real project and add screenshots or resource links when they are available."
+    ]
+  }
+]

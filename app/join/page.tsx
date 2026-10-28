@@ -1,0 +1,11 @@
+import Link from 'next/link';
+import { PageHeading } from '@/components/shared';
+import { Icon } from '@/components/icon';
+import { getContent } from '@/lib/content';
+import { pageMetadata } from '@/lib/metadata';
+
+export const generateMetadata = () => pageMetadata('Join us', 'Get to know UGAIL and explore ways to connect.', '/join/');
+export default function JoinPage() {
+  const { site } = getContent();
+  return <><PageHeading label="Join us" title="Start with curiosity." description="An idea, a question, a shared interest. There is more than one way to get to know UGAIL." /><div className="container page-content"><div className="join-layout"><div><p className="eyebrow">Find your starting point</p><h2>A connection can<br />start something new.</h2><p className="large-copy">Take a look at our work, meet the people behind it, and see what sparks your interest.</p><div className="join-steps"><Link href="/what-we-do/"><span>01</span><div><h3>Explore the work</h3><p>Get a feel for our projects and activities.</p></div><Icon name="northeast" size={21} /></Link><Link href="/team/"><span>02</span><div><h3>Meet the people</h3><p>Find shared interests and new perspectives.</p></div><Icon name="northeast" size={21} /></Link><Link href="/updates/"><span>03</span><div><h3>Stay in the loop</h3><p>Follow updates, events, and opportunities as they are shared.</p></div><Icon name="northeast" size={21} /></Link></div></div><aside className="contact-card"><div className="contact-icon"><Icon name={site.contactEmail ? 'mail' : 'code'} size={29} /></div><p className="eyebrow">Keep in touch</p><h2>Let’s find a<br />common thread.</h2>{site.contactEmail ? <><p>Have a question or an idea to share? Get in touch with UGAIL.</p><a href={`mailto:${site.contactEmail}`} className="button button-white">Email us <Icon name="northeast" size={17} /></a><a className="contact-email" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></> : <><p>Visit our GitHub to explore UGAIL’s online home. Further contact details and participation opportunities will be shared here when available.</p><a href={site.githubUrl} className="button button-white" target="_blank" rel="noopener noreferrer">Visit our GitHub <Icon name="northeast" size={17} /></a></>}<span className="contact-decoration" aria-hidden="true">✳</span></aside></div></div></>;
+}

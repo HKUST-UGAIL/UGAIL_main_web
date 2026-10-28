@@ -1,0 +1,13 @@
+[
+  {
+    "id": "example-conversational-ai-paper",
+    "title": "Example Publication: Evaluating Conversational AI for Learning",
+    "authors": [
+      "Example Author"
+    ],
+    "year": 2026,
+    "venue": "Example venue — sample citation",
+    "paperUrl": "https://example.org/",
+    "bibtex": "@misc{example2026conversational,\n  title={Example Publication: Evaluating Conversational AI for Learning},\n  author={Example Author},\n  year={2026},\n  note={Illustrative example only; not a published paper},\n  url={https://example.org/}\n}"
+  }
+]
