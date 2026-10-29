@@ -194,6 +194,7 @@ button.text-link { border: 0; background: transparent; padding: 0; }
 .collection-note .small-line { background: #a5bcb0; }
 .section-gap { margin-top: 70px; }
 .team-group + .team-group { margin-top: 60px; }
+.team-group-empty { color: var(--muted); font-size: 14px; line-height: 1.8; }
 .group-heading { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
 .group-heading h2 { font-size: 23px; font-weight: 550; letter-spacing: -.03em; }
 .group-heading > span { display: grid; place-items: center; width: 25px; height: 25px; background: #e6eeea; border-radius: 50%; font-size: 10px; color: var(--teal); }

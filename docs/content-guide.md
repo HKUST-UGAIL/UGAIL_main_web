@@ -26,14 +26,14 @@ For the X card, add `"xHandle": "your_username"` to `content/site.json` when the
 
 ## Team
 
-Add records to `content/people.json` in the desired display order. Roles appear in the order first encountered. Missing portraits use initials.
+Add records to `content/people.json` in the desired display order within each group. The Team page shows five groups in order: `Founder`, `Co-founder`, `Tech`, `Lead Member`, and `Director`. Use one of these exact values for `role`; empty groups show a short placeholder. Jiayu Liu is Founder; Zihui Wang, Hangan Zhou, Lingcheng Kong, Rui Wang, and Baichuan Li are Co-founders. Missing portraits use initials.
 
 ```json
 [
   {
     "id": "example-person",
     "name": "Example Person",
-    "role": "team member",
+    "role": "Co-founder",
     "interests": ["Verified research interest"],
     "bio": "A short, verified biography.",
     "image": "/images/people/example-person.jpg",
