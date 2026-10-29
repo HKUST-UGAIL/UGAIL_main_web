@@ -73,6 +73,12 @@ button.text-link { border: 0; background: transparent; padding: 0; }
 .home-introduction-copy { margin-top: 19px; }
 .home-introduction-copy p { font-size: 16px; line-height: 1.95; color: #35485f; }
 .home-introduction-copy p + p { margin-top: 20px; }
+.home-about-list { margin-top: 20px; padding-left: 23px; list-style: disc; color: #35485f; font-size: 16px; line-height: 1.95; }
+.home-about-list li + li { margin-top: 16px; }
+.home-about-list li::marker { color: var(--teal); }
+.home-about-list strong { color: var(--text); font-weight: 650; }
+.home-about-list a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+.home-about-list a:hover { color: var(--teal); }
 .home-introduction-links { display: flex; flex-wrap: wrap; gap: 15px 30px; margin-top: 25px; }
 .home-sidebar { min-width: 0; border-left: 1px solid var(--border); padding-left: 24px; }
 .x-account-card { display: flex; align-items: center; gap: 10px; min-height: 80px; padding: 15px 13px; border: 1px solid #163e55; border-radius: 11px; background: var(--hero); color: white; }
@@ -127,6 +133,7 @@ button.text-link { border: 0; background: transparent; padding: 0; }
   .home-introduction { padding-top: 25px; }
   .home-introduction h1 { font-size: 28px; }
   .home-introduction-copy p { font-size: 14px; line-height: 1.95; }
+  .home-about-list { font-size: 14px; }
   .home-introduction-links { gap: 16px 24px; }
   .home-introduction-links .text-link { font-size: 12px; }
 }

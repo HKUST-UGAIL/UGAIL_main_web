@@ -4,6 +4,8 @@ export type Site = {
   tagline: string;
   description: string;
   about: string;
+  aboutHeading?: string;
+  aboutItems?: { title: string; description: string; link?: LinkItem }[];
   githubUrl: string;
   contactEmail?: string;
   xHandle?: string;

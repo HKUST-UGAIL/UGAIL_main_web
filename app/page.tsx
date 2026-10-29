@@ -34,9 +34,19 @@ export default function Home() {
         </figure>
         <section className="home-introduction" aria-labelledby="home-title">
           <p className="eyebrow">About us</p>
-          <h1 id="home-title">Welcome to {site.name}.</h1>
+          <h1 id="home-title">{site.aboutHeading ?? `Welcome to ${site.name}.`}</h1>
           <div className="home-introduction-copy">
             {site.about.split(/\n\s*\n/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            {!!site.aboutItems?.length && (
+              <ul className="home-about-list">
+                {site.aboutItems.map(item => (
+                  <li key={item.title}>
+                    <strong>{item.title}.</strong> {item.description}
+                    {item.link && <> <a href={item.link.url}>{item.link.label}</a></>}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div className="home-introduction-links">
             <Link href="/team/" className="text-link">Meet our team <Icon name="northeast" size={16} /></Link>

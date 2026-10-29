@@ -6,13 +6,13 @@ Team currently lists six user-provided names in order: Jiayu Liu, Zihui Wang, Ha
 
 ## Site introduction
 
-`content/site.json` contains `name`, `tagline`, `description`, `about`, and `githubUrl`. These are required nonempty strings; `githubUrl` must be an HTTP(S) URL. The homepage headline welcomes visitors using `name`; the footer shows `tagline` beneath the brand. The optional `contactEmail` enables the email contact card on Join us. Leave that property absent until a public contact address is confirmed.
+`content/site.json` contains `name`, `tagline`, `description`, `about`, and `githubUrl`. These are required nonempty strings; `githubUrl` must be an HTTP(S) URL. The optional `aboutHeading` sets the homepage headline (otherwise it welcomes visitors using `name`); the footer shows `tagline` beneath the brand. The optional `contactEmail` enables the email contact card on Join us. Leave that property absent until a public contact address is confirmed.
 
 ## Homepage layout, image and X account
 
 The homepage uses a wide left column and a compact right sidebar on desktop. The left column displays the image followed by the introduction; the sidebar displays the X account card and up to six updates in descending date order. Mobile displays the main column first, followed by the sidebar.
 
-Edit `site.about` for the introduction. Separate paragraphs with `\n\n` inside the JSON string. The optional `homeImage` object controls the homepage photograph:
+Edit `site.aboutHeading` for the opening line and `site.about` for the introduction. Separate paragraphs with `\n\n` inside the JSON string. The optional `aboutItems` array renders a bullet list; each entry has `title`, `description`, and an optional `link` with `label` and an HTTP(S) `url`. The current LabSpace link uses `https://example.org/` as a placeholder; replace `site.aboutItems[0].link.url` with the real URL when ready. The optional `homeImage` object controls the homepage photograph:
 
 ```json
 "homeImage": {

@@ -7,7 +7,7 @@ const url = z.url({ protocol: /^https?$/ });
 const image = z.string().regex(/^\/images\/(?:[\w-]+\/)*[\w.-]+$/, 'Images must be local paths under /images/');
 const links = z.array(z.strictObject({ label: text, url })).optional();
 const contentSchema = z.strictObject({
-  site: z.strictObject({ name: text, tagline: text, description: text, about: text, githubUrl: url, contactEmail: z.email().optional(), xHandle: z.string().regex(/^[A-Za-z0-9_]{1,15}$/, 'Use an X username without @').optional(), homeImage: z.strictObject({ src: image, alt: text, caption: text.optional() }).optional() }),
+  site: z.strictObject({ name: text, tagline: text, description: text, about: text, aboutHeading: text.optional(), aboutItems: z.array(z.strictObject({ title: text, description: text, link: z.strictObject({ label: text, url }).optional() })).optional(), githubUrl: url, contactEmail: z.email().optional(), xHandle: z.string().regex(/^[A-Za-z0-9_]{1,15}$/, 'Use an X username without @').optional(), homeImage: z.strictObject({ src: image, alt: text, caption: text.optional() }).optional() }),
   people: z.array(z.strictObject({ id: slug, name: text, role: text, interests: z.array(text), bio: text.optional(), image: image.optional(), url: url.optional() })),
   initiatives: z.array(z.strictObject({ slug, title: text, summary: text, category: z.enum(['Project', 'Activity']), topics: z.array(text), body: z.array(text), image: image.optional(), links })),
   publications: z.array(z.strictObject({ id: slug, title: text, authors: z.array(text).min(1), year: z.number().int().min(1900).max(9999), venue: text, paperUrl: url, codeUrl: url.optional(), bibtex: text.optional() })),

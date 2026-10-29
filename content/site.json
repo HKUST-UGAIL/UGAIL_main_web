@@ -2,11 +2,30 @@
   "name": "UGAIL",
   "tagline": "Good questions. Shared discoveries.",
   "description": "Explore the people, projects, and ideas behind UGAIL.",
-  "about": "UGAI-Lab brings together Jiayu Liu, Zihui Wang, Hangan Zhou, Lingcheng Kong, Rui Wang and Baichuan Li. We are building a campus-focused AI research discovery and connection platform for HKUST that brings together papers, research directions, events and entry-level opportunities. The platform helps undergraduates explore AI research, publish Research Requests and connect with researchers who post Research Bounties through a privacy-aware, two-sided confirmation process, supported by profiles, workshops and seminars. Our goal is to make early participation in AI research more visible, understandable and approachable, while lowering the barrier for students to develop questions, discover meaningful opportunities and form academic connections through a secure and usable platform.",
+  "about": "UGAI-Lab is a student-led initiative that helps HKUST undergraduates take their first steps in AI research. We do this in three ways:",
   "githubUrl": "https://github.com/HKUST-UGAIL/UGAIL_main_web",
   "homeImage": {
     "src": "/images/campus.jpeg",
     "alt": "HKUST campus and its red sundial sculpture",
     "caption": "A view of the HKUST campus."
-  }
+  },
+  "aboutHeading": "Where HKUST undergraduates meet AI research.",
+  "aboutItems": [
+    {
+      "title": "UST LabSpace",
+      "description": "An online platform where you can keep up with faculty’s latest research directions and papers, and get matched with postgraduate researchers looking for undergraduate collaborators.",
+      "link": {
+        "label": "Visit LabSpace →",
+        "url": "https://example.org/"
+      }
+    },
+    {
+      "title": "Seminars",
+      "description": "Talks from researchers at every stage, from rising-star PhD students to faculty, on their work and how they got there."
+    },
+    {
+      "title": "Workshops",
+      "description": "Conference-style sessions where students present their own work and get feedback from peers and researchers. Any stage counts: a published paper, a UROP report, a course project or an idea in progress."
+    }
+  ]
 }
