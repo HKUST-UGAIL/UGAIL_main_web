@@ -15,13 +15,15 @@
     "id": "hangan-zhou",
     "name": "Hangan Zhou",
     "role": "Co-founder",
-    "interests": []
+    "interests": [],
+    "image": "/images/members/hangan_zhou.png"
   },
   {
     "id": "lingcheng-kong",
     "name": "Lingcheng Kong",
     "role": "Co-founder",
-    "interests": []
+    "interests": [],
+    "image": "/images/members/lingchen_kong.jpg"
   },
   {
     "id": "rui-wang",
@@ -33,6 +35,7 @@
     "id": "baichuan-li",
     "name": "Baichuan Li",
     "role": "Co-founder",
-    "interests": []
+    "interests": [],
+    "image": "/images/members/baichuan_li.jpg"
   }
 ]
