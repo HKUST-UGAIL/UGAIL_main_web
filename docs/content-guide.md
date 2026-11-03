@@ -2,7 +2,7 @@
 
 The website reads JSON files under `content/`. Save a file and refresh the page in `npm run dev` to see the update; rebuild with `npm run build` before publishing static files. All examples below are illustrative; replace them with verified information before using them in production.
 
-Team currently lists six user-provided names in order: Jiayu Liu, Zihui Wang, Hangan Zhou, Lingcheng Kong, Rui Wang, and Baichuan Li. Other profile fields await member information. What We Do, Publications, and Updates each contain one user-requested example. Edit these records directly or duplicate them to add more entries. Names, paper details, and `example.org` links are placeholders; replace them with real information. The example update also appears in the homepage sidebar.
+Team currently lists six user-provided names in order: Jiayu Liu, Zihui Wang, Hangan Zhou, Lingcheng Kong, Rui Wang, and Baichuan Li. Other profile fields await member information. Publications contains three papers supplied by the user, with metadata checked against their source pages. What We Do and Updates each contain one user-requested example; their `example.org` links are placeholders. The example update also appears in the homepage sidebar.
 
 ## Site introduction
 
@@ -76,15 +76,20 @@ Add records to `content/publications.json`. The page sorts by year descending, p
     "title": "Example paper title",
     "authors": ["Example Author", "Another Author"],
     "year": 2026,
+    "month": 10,
     "venue": "Verified venue name",
+    "image": "/images/publications/example-overview.png",
+    "imageAlt": "Description of the paper's overview figure",
+    "summary": "A brief summary of the paper's main contribution.",
     "paperUrl": "https://example.org/paper",
+    "paperLabel": "Paper",
     "codeUrl": "https://example.org/code",
     "bibtex": "@article{example2026,\n  title={Example paper title},\n  year={2026}\n}"
   }
 ]
 ```
 
-Required: `id`, `title`, `authors` (at least one), `year` (integer), `venue`, `paperUrl`. Optional: `codeUrl`, `bibtex`. Buttons only appear when their corresponding content exists. BibTeX is expandable and copyable; if clipboard access is unavailable, users can select the citation text directly.
+Required: `id`, `title`, `authors` (at least one), `year` (integer), `venue`, `paperUrl`. Optional: `month` (integer 1–12), `image`, `imageAlt`, `summary`, `paperLabel`, `codeUrl`, `bibtex`. Each entry places a contained figure and resource buttons beside the title, venue badge, date, full authors, and TL;DR summary; mobile stacks these columns. The default paper button label is `Paper`; use `arXiv` for a preprint link. Team names matching `content/people.json` exactly are automatically highlighted in blue. Missing months display the year only; missing figures and summaries are omitted. Buttons only appear when their corresponding content exists. BibTeX is expandable and copyable; if clipboard access is unavailable, users can select the citation text directly. Figure sources for the current publications are documented in `public/images/publications/README.md`.
 
 ## Updates, events and articles
 

@@ -55,6 +55,26 @@ test('publication search, year intersection, empty results and BibTeX work', asy
   await expect(page.locator('pre')).toHaveCount(0);
 });
 
+test('publication figures, metadata and summaries follow the responsive reference layout', async ({ page, isMobile }) => {
+  await page.goto('/publications/');
+  const entry = page.getByRole('article').filter({ has: page.getByRole('heading', { name: 'Evaluating dialogue', exact: true }) });
+  const image = entry.getByRole('img', { name: 'Overview of the dialogue evaluation' });
+  await expect(image).toBeVisible();
+  await expect(entry.locator('time')).toHaveAttribute('datetime', '2025-10');
+  await expect(entry.locator('time')).toHaveText('Oct 2025');
+  await expect(entry.locator('.publication-author-team')).toHaveText(['Alex Rivera', 'Sam Chen']);
+  await expect(entry.locator('.publication-tldr')).toHaveText('TL;DR: Evaluates dialogue quality using a reproducible framework.');
+  await expect(entry.getByRole('link', { name: 'arXiv', exact: true })).toHaveAttribute('href', 'https://example.org/paper');
+  const figure = (await entry.locator('.publication-media').boundingBox())!;
+  const details = (await entry.locator('.publication-content').boundingBox())!;
+  if (isMobile) expect(details.y).toBeGreaterThanOrEqual(figure.y + figure.height - 1);
+  else expect(details.x).toBeGreaterThanOrEqual(figure.x + figure.width - 1);
+  const fallback = page.getByRole('article').filter({ has: page.getByRole('heading', { name: 'Learning agents', exact: true }) });
+  await expect(fallback.getByRole('link', { name: 'Paper', exact: true })).toBeVisible();
+  await expect(fallback.locator('time')).toHaveText('2024');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
 test('projects and activities filter independently and preserve detail navigation', async ({ page }) => {
   await page.goto('/what-we-do/');
   await page.getByRole('button', { name: 'Activities', exact: true }).click();

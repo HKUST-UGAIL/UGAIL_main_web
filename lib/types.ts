@@ -37,6 +37,11 @@ export type Publication = {
   year: number;
   venue: string;
   paperUrl: string;
+  paperLabel?: string;
+  month?: number;
+  image?: string;
+  imageAlt?: string;
+  summary?: string;
   codeUrl?: string;
   bibtex?: string;
 };

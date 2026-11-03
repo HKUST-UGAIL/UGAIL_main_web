@@ -37,7 +37,7 @@ npm run preview
 
 Edit `content/site.json`, `people.json`, `initiatives.json`, `publications.json`, and `updates.json`. Add images under `public/images/`. See the [content guide](docs/content-guide.md) for complete examples and field definitions.
 
-Team contains six user-provided member names. Projects, publications, and updates each contain one clearly labeled example in `content/`. Replace these examples with verified information before publishing; `example.org` links are placeholders. Removing the entries (using `[]`) restores the empty states. Automated browser-test fixtures remain isolated in `tests/fixtures/content/` and are never loaded by default.
+Team contains six user-provided member names. Publications contains three user-supplied papers with source-verified metadata, figures, and short summaries. Projects and updates each contain one clearly labeled example in `content/`; replace their `example.org` links before publishing. Removing the entries (using `[]`) restores the empty states. Automated browser-test fixtures remain isolated in `tests/fixtures/content/` and are never loaded by default.
 
 ## Verify
 
